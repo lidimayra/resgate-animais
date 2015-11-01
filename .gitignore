@@ -1,0 +1,27 @@
+# log
+/log/*
+!/log/.keep
+/tmp
+*.log
+*.keep
+*.cache
+
+# system
+.DS_Store
+
+# uploads
+/uploads
+/public/uploads
+
+# config
+/config/database.yml
+/config/secrets.yml
+
+# tests
+.rspec
+
+# bundle
+/.bundle
+
+# Ignore application configuration
+/config/application.yml
