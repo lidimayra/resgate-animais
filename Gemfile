@@ -22,6 +22,7 @@ gem 'decent_exposure', '2.3.2'
 group :development do
   gem 'better_errors', '2.1.1'
   gem 'guard-rspec', require: false
+  gem 'erb2haml', '0.1.5'
 end
 
 group :test do
