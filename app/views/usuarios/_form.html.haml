@@ -25,8 +25,8 @@
   .form-group
     = f.label :perfil, class: 'control-label'
     .controls
-      = f.text_field :perfil, class: 'form-control', required: true
-    = error_span(usuario[:perfil])
+      = f.select(:perfil, Usuario.perfils.keys, {}, { class: "form-control" })
+    %br/
 
   = f.submit nil,class: 'btn btn-primary', value: t('helpers.links.save')
-  = link_to t("helpers.links.cancel"), usuarios_path, :class => 'btn btn-default'
+  = link_to t("helpers.links.cancel"), usuarios_path, class: 'btn btn-default'
