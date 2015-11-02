@@ -3,6 +3,7 @@ pt-BR:
     create:
       success: "Usuário %{nome} criado com sucesso!"
       failure: 'Ops! O usuário não pôde ser criado!'
+      default_password: '12345678'
 
     update:
       success: "Usuário %{nome} atualizado com sucesso!"

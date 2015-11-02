@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :usuario do
     nome Faker::Name.name
     sequence(:email) { |n| "email#{n}@example.com" }
-    senha '12345678'
+    senha Faker::Lorem.characters(8)
     data_registro Date.yesterday
     data_desligamento Date.today
     perfil 'administrador'

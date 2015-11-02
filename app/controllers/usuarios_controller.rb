@@ -7,6 +7,7 @@ class UsuariosController < ApplicationController
   expose(:usuario, attributes: :usuario_params)
 
   def create
+    usuario.senha = t('.default_password')
     if usuario.save
       flash[:notice] = t('.success', nome: usuario.nome)
       redirect_to usuarios_path

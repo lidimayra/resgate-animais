@@ -57,8 +57,9 @@ RSpec.describe UsuariosController, type: :controller do
 
       subject { post :create, usuario: usuario_valido }
 
-      it 'salva o usuário no banco de dados' do
+      it 'salva o usuário no banco de dados com senha padrão' do
         expect{ subject }.to change(Usuario, :count).by 1
+        expect(controller.usuario.senha).to eq '12345678'
       end
 
       it 'exibe mensagem de sucesso' do
