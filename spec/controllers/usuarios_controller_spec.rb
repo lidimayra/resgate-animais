@@ -19,6 +19,17 @@ RSpec.describe UsuariosController, type: :controller do
     end
   end
 
+  describe '#show' do
+
+    context 'ao renderizar as views' do
+
+      render_views
+
+      subject { get :show, id: usuario }
+      it { is_expected.to render_template :show }
+    end
+  end
+
   describe '#new' do
 
     context 'ao renderizar as views' do
