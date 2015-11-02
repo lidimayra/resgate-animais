@@ -1,3 +1,6 @@
+%script
+  $(function() { $('.datepicker').datepicker() });
+
 = form_for usuario, html: { class: "form form-horizontal usuario" } do |f|
   .form-group
     = f.label :nome, class: 'control-label'
@@ -12,12 +15,12 @@
   .form-group
     = f.label :data_registro, class: 'control-label'
     .controls
-      = f.text_field :data_registro, class: 'form-control', required: true
+      = f.text_field :data_registro, class: ' datepicker form-control', required: true
     = error_span(usuario[:data_registro])
   .form-group
     = f.label :data_desligamento, class: 'control-label'
     .controls
-      = f.text_field :data_desligamento, class: 'form-control'
+      = f.text_field :data_desligamento, class: 'datepicker form-control'
 
   .form-group
     = f.label :perfil, class: 'control-label'
