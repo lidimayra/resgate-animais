@@ -1,0 +1,31 @@
+- model_class = Usuario
+
+.container
+  .row
+    .col-md-11
+
+      .page-header
+        %h1=t model_class.model_name.human.pluralize
+
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= model_class.human_attribute_name(:nome)
+            %th= model_class.human_attribute_name(:email)
+            %th= model_class.human_attribute_name(:data_registro)
+            %th= model_class.human_attribute_name(:data_desligamento)
+            %th= model_class.human_attribute_name(:perfil)
+            %th= t("helpers.actions")
+        %tbody
+          - usuarios.each do |usuario|
+            %tr
+              %td= link_to usuario.nome, usuario_path(usuario)
+              %td= usuario.email
+              %td= usuario.data_registro
+              %td= usuario.data_desligamento
+              %td= usuario.perfil
+              %td
+                = link_to t("helpers.links.edit"), edit_usuario_path(usuario), :class => 'btn btn-default btn-xs'
+                = link_to t("helpers.links.destroy"), usuario_path(usuario), method: :delete, data: { confirm: t("helpers.links.confirm") }, class: 'btn btn-xs btn-danger'
+
+      = link_to t("helpers.links.new"), new_usuario_path,class: 'btn btn-primary'
