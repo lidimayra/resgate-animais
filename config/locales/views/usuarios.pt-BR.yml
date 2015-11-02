@@ -1,0 +1,13 @@
+pt-BR:
+  usuarios:
+    create:
+      success: "Usuário %{nome} criado com sucesso!"
+      failure: 'Ops! O usuário não pôde ser criado!'
+
+    update:
+      success: "Usuário %{nome} atualizado com sucesso!"
+      failure: 'Ops! O usuário %{nome} não pôde ser atualizado!'
+
+    destroy:
+      success: "Usuário %{nome} removido com sucesso!"
+      failure: 'Ops! O usuário %{nome} não pôde ser removido!'
