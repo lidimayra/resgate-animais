@@ -5,8 +5,8 @@
     .col-md-11
 
       .page-header
-        %h1=t "helpers.titles.new", :model => model_class.model_name.human
+        %h1=t "helpers.titles.new", model: model_class.model_name.human
 
       .row
         .col-md-6.col-md-offset-3
-          = render :partial => "form"
+          = render "form"

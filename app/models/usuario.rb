@@ -7,6 +7,6 @@ class Usuario < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :data_registro, presence: true
 
-  validates_datetime :data_desligamento, after: :data_registro
+  validates_datetime :data_desligamento, after: :data_registro, allow_nil: true
 
 end

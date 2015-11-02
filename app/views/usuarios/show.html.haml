@@ -5,7 +5,7 @@
     .col-md-11
 
       .page-header
-        %h1=t '.title', :default => model_class.model_name.human.titleize
+        %h1=t model_class.model_name.human
 
       %p
         %strong= model_class.human_attribute_name(:nome) + ':'
@@ -29,6 +29,12 @@
         = usuario.perfil
 
 
-      = link_to t('.back', :default => t("helpers.links.back")), usuarios_path, :class => 'btn btn-default'
-      = link_to t('.edit', :default => t("helpers.links.edit")), edit_usuario_path(usuario), :class => 'btn btn-default'
-      = link_to t('.destroy', :default => t("helpers.links.destroy")), usuario_path(usuario), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+      = link_to t("helpers.links.back"), usuarios_path,                  |
+        class: 'btn btn-default'
+
+      = link_to t("helpers.links.edit"),                                 |
+        edit_usuario_path(usuario), class: 'btn btn-default'
+
+      = link_to t("helpers.links.destroy"), usuario_path(usuario),       |
+        method: "delete", data: { confirm: t("helpers.links.confirm") }, |
+        class: 'btn btn-danger'
