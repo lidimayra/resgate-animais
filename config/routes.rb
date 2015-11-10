@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :usuarios
-  root to: 'usuarios#index'
+
+  devise_scope :usuario do
+    root to: 'usuarios#index'
+  end
 
   resources :usuarios
   resources :animals

@@ -6,7 +6,7 @@ FactoryGirl.define do
     data_registro Date.yesterday
     data_desligamento Date.today
     perfil 'administrador'
-    confirmed_at Time.now
+    # confirmed_at Time.now
 
     trait :admin do
       perfil 'administrador'

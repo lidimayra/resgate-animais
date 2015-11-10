@@ -28,5 +28,6 @@
       = f.select(:perfil, Usuario.perfils.keys, {}, { class: "form-control" })
     %br/
 
-  = f.submit nil,class: 'btn btn-primary', value: t('helpers.links.save')
+  = f.submit t('helpers.links.save'), class: 'btn btn-primary'
+
   = link_to t("helpers.links.cancel"), usuarios_path, class: 'btn btn-default'

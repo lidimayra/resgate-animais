@@ -9,7 +9,7 @@ RSpec.describe UsuariosController, type: :controller do
     [:nome, :email, :password, :data_registro, :data_desligamento, :perfil]
   end
 
-  before { sign_in admin }
+  # before { sign_in admin }
 
   describe '#index' do
 
@@ -39,6 +39,7 @@ RSpec.describe UsuariosController, type: :controller do
       render_views
 
       subject { get :new }
+
       it { is_expected.to render_template :new }
     end
 
