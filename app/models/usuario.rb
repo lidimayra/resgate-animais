@@ -1,4 +1,6 @@
 class Usuario < ActiveRecord::Base
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   enum perfil: { administrador: 1, atendente: 2 }
 

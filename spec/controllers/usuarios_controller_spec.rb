@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe UsuariosController, type: :controller do
 
-  let(:usuario) { create(:usuario) }
+  let(:admin) { create(:usuario, :admin) }
+  let(:atendente) { create(:usuario, :atendente) }
 
   let(:permitted_params) do
-    [:nome, :email, :senha, :data_registro, :data_desligamento, :perfil]
+    [:nome, :email, :password, :data_registro, :data_desligamento, :perfil]
   end
+
+  before { sign_in admin }
 
   describe '#index' do
 
@@ -25,7 +28,7 @@ RSpec.describe UsuariosController, type: :controller do
 
       render_views
 
-      subject { get :show, id: usuario }
+      subject { get :show, id: admin }
       it { is_expected.to render_template :show }
     end
   end
@@ -43,7 +46,7 @@ RSpec.describe UsuariosController, type: :controller do
 
   describe '#create' do
 
-    let(:usuario_valido) { attributes_for(:usuario) }
+    let(:usuario_valido) { attributes_for(:usuario, perfil: 'atendente') }
     let(:usuario_invalido) { attributes_for(:usuario).except(:nome) }
     let(:params) { {usuario: usuario_valido} }
 
@@ -59,7 +62,7 @@ RSpec.describe UsuariosController, type: :controller do
 
       it 'salva o usuário no banco de dados com senha padrão' do
         expect{ subject }.to change(Usuario, :count).by 1
-        expect(controller.usuario.senha).to eq '12345678'
+        expect(controller.usuario.password).to eq '12345678'
       end
 
       it 'exibe mensagem de sucesso' do
@@ -92,8 +95,10 @@ RSpec.describe UsuariosController, type: :controller do
   describe '#update' do
 
     let(:novo_nome) { Faker::Name.name }
-    let(:usuario_valido) { attributes_for(:usuario, nome: novo_nome) }
-    let(:params) { {id: usuario, patch: usuario_valido} }
+    let(:usuario_valido) do
+      attributes_for(:usuario, nome: novo_nome, perfil: 'atendente')
+    end
+    let(:params) { {id: atendente, patch: usuario_valido} }
 
     context 'quanto aos parâmetros' do
 
@@ -104,11 +109,11 @@ RSpec.describe UsuariosController, type: :controller do
 
     context 'com atributos válidos' do
 
-      subject { patch :update, id: usuario, usuario: usuario_valido }
+      subject { patch :update, id: atendente, usuario: usuario_valido }
 
       it 'atualiza os dados do Usuário' do
         subject
-        expect(Usuario.find(usuario.id).nome).to eq novo_nome
+        expect(Usuario.find(atendente.id).nome).to eq novo_nome
       end
 
       it 'exibe mensagem de sucesso' do
@@ -122,20 +127,20 @@ RSpec.describe UsuariosController, type: :controller do
 
     context 'com atributos inválidos' do
 
-      let(:data_registro) { usuario.data_registro }
+      let(:data_registro) { admin.data_registro }
       let(:usuario_invalido) { attributes_for(:usuario, nome: nil) }
 
-      subject { patch :update, id: usuario, usuario: usuario_invalido }
+      subject { patch :update, id: atendente, usuario: usuario_invalido }
 
       it 'não atualiza os dados do usuário' do
         subject
-        expect(Usuario.find(usuario.id).data_registro).to eq data_registro
+        expect(Usuario.find(atendente.id).data_registro).to eq data_registro
       end
 
       it 'exibe mensagem de erro' do
         subject
         expect(controller).to set_flash[:alert].to(I18n.t(
-          'usuarios.update.failure') % { nome: usuario.nome } )
+          'usuarios.update.failure') % { nome: admin.nome } )
       end
 
       it { is_expected.to redirect_to usuarios_path }
@@ -144,15 +149,15 @@ RSpec.describe UsuariosController, type: :controller do
 
   describe '#destroy' do
 
-    before { delete :destroy, id: usuario }
+    before { delete :destroy, id: atendente }
 
     it 'remove o usuário' do
-      expect(Usuario.find_by(id: usuario.id)).to be_nil
+      expect(Usuario.find_by(id: atendente.id)).to be_nil
     end
 
     it 'exibe mensagem de sucesso' do
       expect(controller).to set_flash[:notice].to(I18n.t(
-        'usuarios.destroy.success') % { nome: usuario.nome } )
+        'usuarios.destroy.success') % { nome: admin.nome } )
     end
 
     it { is_expected.to redirect_to usuarios_path }
