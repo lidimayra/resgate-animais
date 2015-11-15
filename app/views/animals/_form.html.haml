@@ -1,0 +1,31 @@
+%script
+  $(function() { $('.datepicker').datepicker() });
+
+= form_for animal, html: { class: "form form-horizontal animal" } do |f|
+  .form-group
+    = f.label :nome, class: 'control-label'
+    .controls
+      = f.text_field :nome, class: 'form-control', required: true
+    = error_span(animal[:nome])
+  .form-group
+    = f.label :peso, class: 'control-label'
+    .controls
+      = f.text_field :peso, class: 'form-control', required: true
+    = error_span(animal[:peso])
+  .form-group
+    = f.label :especie, class: 'control-label'
+    .controls
+      = f.select(:especie, Animal.especies.keys, {}, { class: "form-control" })
+    %br/
+  .form-group
+    = f.label :data_registro, class: 'control-label'
+    .controls
+      = f.text_field :data_registro, class: ' datepicker form-control', required: true
+    = error_span(animal[:data_registro])
+  .form-group
+    = f.label :data_saida, class: 'control-label'
+    .controls
+      = f.text_field :data_saida, class: 'datepicker form-control'
+
+  = f.submit nil,class: 'btn btn-primary', value: t('helpers.links.save')
+  = link_to t("helpers.links.cancel"), animals_path, class: 'btn btn-default'

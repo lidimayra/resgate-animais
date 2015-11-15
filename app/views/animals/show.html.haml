@@ -1,0 +1,42 @@
+- model_class = Animal
+
+.container
+  .row
+    .col-md-11
+
+      .page-header
+        %h1=t model_class.model_name.human
+
+      %p
+        %strong= model_class.human_attribute_name(:nome) + ':'
+        %br
+        = animal.nome
+      %p
+        %strong= model_class.human_attribute_name(:peso) + ':'
+        %br
+        = animal.peso
+
+      %p
+        %strong= model_class.human_attribute_name(:especie) + ':'
+        %br
+        = animal.especie
+
+      %p
+        %strong= model_class.human_attribute_name(:data_registro) + ':'
+        %br
+        = animal.data_registro
+      %p
+        %strong= model_class.human_attribute_name(:data_saida) + ':'
+        %br
+        = animal.data_saida
+
+
+      = link_to t("helpers.links.back"), animals_path,                    |
+        class: 'btn btn-default'
+
+      = link_to t("helpers.links.edit"),                                  |
+        edit_animal_path(animal), class: 'btn btn-default'
+
+      = link_to t("helpers.links.destroy"), animal_path(animal),          |
+        method: "delete", data: { confirm: t("helpers.links.confirm") },  |
+        class: 'btn btn-danger'

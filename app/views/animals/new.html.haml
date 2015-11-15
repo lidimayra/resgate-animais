@@ -1,0 +1,12 @@
+- model_class = Animal
+
+.container
+  .row
+    .col-md-11
+
+      .page-header
+        %h1=t "helpers.titles.new", model: model_class.model_name.human
+
+      .row
+        .col-md-6.col-md-offset-3
+          = render "form"

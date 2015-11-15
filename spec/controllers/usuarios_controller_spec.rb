@@ -47,10 +47,10 @@ RSpec.describe UsuariosController, type: :controller do
     let(:usuario_invalido) { attributes_for(:usuario).except(:nome) }
     let(:params) { {usuario: usuario_valido} }
 
-    context 'quanto aos parâmetros' do
-      it 'permite os parâmetros do usuário' do
-        is_expected.to permit(*permitted_params).for(:create, params: params)
-      end
+
+    it 'permite os parâmetros do usuário' do
+      is_expected.to permit(*permitted_params)
+      .for(:create, params: params)
     end
 
     context 'com atributos válidos' do
