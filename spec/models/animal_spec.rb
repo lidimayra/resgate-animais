@@ -14,4 +14,12 @@ RSpec.describe Animal, type: :model do
     it { is_expected.to validate_numericality_of(:peso).is_greater_than(0) }
   end
 
+  context 'ao validar data de desligamento' do
+
+    it 'deve ser posterior à data de registro' do
+      animal = build(:animal, :datas_invalidas)
+      expect(animal).to_not be_valid
+    end
+  end
+
 end

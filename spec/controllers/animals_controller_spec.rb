@@ -7,6 +7,8 @@ RSpec.describe AnimalsController, type: :controller do
     [:nome, :peso, :especie, :data_registro, :data_saida]
   end
 
+  before { sign_in create(:usuario) }
+
   describe '#index' do
     subject { get :index }
     render_views

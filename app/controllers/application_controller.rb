@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
+  def after_sign_in_path_for(usuario)
+    animals_path
+  end
+
 end

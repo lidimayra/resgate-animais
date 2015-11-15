@@ -13,12 +13,12 @@
   .form-group
     = f.label :nome, class: 'control-label'
     .controls
-      = f.text_field :nome, class: 'form-control', required: true
+      = f.text_field :nome, class: 'form-control'
     = error_span(animal[:nome])
   .form-group
     = f.label :peso, class: 'control-label'
     .controls
-      = f.text_field :peso, class: 'form-control', required: true
+      = f.text_field :peso, class: 'form-control'
     = error_span(animal[:peso])
   .form-group
     = f.label :especie, class: 'control-label'

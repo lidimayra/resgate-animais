@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_usuario!
 
   ANIMAL_PARAMS = [:nome, :peso, :especie, :data_registro, :data_saida]
 

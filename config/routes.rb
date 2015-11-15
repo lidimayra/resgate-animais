@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'animals#index'
+  root :to => redirect("/usuarios/sign_in")
 
   devise_for :usuarios, :skip => :registrations
 

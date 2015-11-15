@@ -6,7 +6,18 @@ pt-BR:
           attributes:
             data_desligamento:
               after: 'deve ser posterior à data de registro'
-
+              invalid_date: 'informe uma data válida'
+            data_registro:
+              invalid_date: 'informe uma data válida'
+            nome:
+              invalid: 'informe nome e sobrenome utilizando apenas letras'
+        animal:
+          attributes:
+            data_registro:
+              invalid_date: 'informe uma data válida'
+            data_saida:
+              after: 'deve ser posterior à data de registro'
+              invalid_date: 'informe uma data válida'
   date:
     abbr_day_names:
     - Dom

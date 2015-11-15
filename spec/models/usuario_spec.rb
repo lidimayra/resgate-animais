@@ -29,7 +29,6 @@ RSpec.describe Usuario, type: :model do
         usuario = build(:usuario, :datas_invalidas)
         expect(usuario).to_not be_valid
       end
-
     end
   end
 
