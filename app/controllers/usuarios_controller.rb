@@ -25,7 +25,7 @@ class UsuariosController < ApplicationController
       redirect_to usuarios_path
     else
       flash[:alert] = t('.failure', nome: Usuario.find(usuario.id).nome)
-      redirect_to usuarios_path
+      render :edit
     end
   end
 

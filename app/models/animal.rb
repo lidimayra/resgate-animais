@@ -4,5 +4,6 @@ class Animal < ActiveRecord::Base
 
   validates :especie, presence: true
   validates :data_registro, presence: true
+  validates :peso, numericality: { greater_than: 0 }
 
 end

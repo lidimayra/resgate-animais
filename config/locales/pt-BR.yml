@@ -6,6 +6,7 @@ pt-BR:
           attributes:
             data_desligamento:
               after: 'deve ser posterior à data de registro'
+
   date:
     abbr_day_names:
     - Dom
@@ -118,16 +119,17 @@ pt-BR:
       invalid: não é válido
       less_than: deve ser menor que %{count}
       less_than_or_equal_to: deve ser menor ou igual a %{count}
-      not_a_number: não é um número
+      not_a_number: deve ser um valor numérico
       not_an_integer: não é um número inteiro
+      not_saved: 'Não foi possível salvar as alterações'
       odd: deve ser ímpar
       record_invalid: 'Erro na validação: %{errors}'
       restrict_dependent_destroy:
         one: Não é possível excluir o registro pois existe um %{record} dependente
         many: Não é possível excluir o registro pois existem %{record} dependentes
       taken: já está em uso
-      too_long: 'é muito longo (máximo: %{count} caracteres)'
-      too_short: 'é muito curto (mínimo: %{count} caracteres)'
+      too_long: 'deve conter no máximo %{count} caracteres'
+      too_short: 'deve conter no mínimo %{count} caracteres'
       wrong_length: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
     template:

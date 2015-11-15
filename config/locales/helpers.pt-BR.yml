@@ -4,6 +4,7 @@ pt-BR:
     main_title: 'Sistema para Gestão de Resgate e Adoção de Animais'
 
     titles:
+      animals: 'Animais'
       edit: 'Editar %{model}'
       update: 'Atualizar'
       new: 'Novo %{model}'

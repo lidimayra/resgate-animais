@@ -8,6 +8,6 @@ class Usuario < ActiveRecord::Base
   validates :perfil, presence: true
   validates :data_registro, presence: true
 
-  validates_datetime :data_desligamento, after: :data_registro, allow_nil: true
+  validates_date :data_desligamento, after: :data_registro, allow_nil: true
 
 end

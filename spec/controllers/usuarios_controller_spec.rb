@@ -128,14 +128,15 @@ RSpec.describe UsuariosController, type: :controller do
 
     context 'com atributos inválidos' do
 
-      let(:data_registro) { admin.data_registro }
-      let(:usuario_invalido) { attributes_for(:usuario, nome: nil) }
+      let(:data_registro_original) { admin.data_registro }
+      let(:usuario_invalido) { attributes_for(:usuario, data_registro: nil) }
 
       subject { patch :update, id: atendente, usuario: usuario_invalido }
 
       it 'não atualiza os dados do usuário' do
         subject
-        expect(Usuario.find(atendente.id).data_registro).to eq data_registro
+        atendente.reload
+        expect(atendente.data_registro).to eq data_registro_original
       end
 
       it 'exibe mensagem de erro' do
@@ -144,7 +145,7 @@ RSpec.describe UsuariosController, type: :controller do
           'usuarios.update.failure') % { nome: admin.nome } )
       end
 
-      it { is_expected.to redirect_to usuarios_path }
+      it { is_expected.to render_template :edit }
     end
   end
 

@@ -1,6 +1,14 @@
 %script
   $(function() { $('.datepicker').datepicker() });
 
+- if animal.errors.any?
+  %ul
+    - animal.errors.each do |atributo, mensagem|
+      %li
+        %strong= "#{ Usuario.human_attribute_name(atributo) }:"
+        = "#{ mensagem }"
+  %br
+
 = form_for animal, html: { class: "form form-horizontal animal" } do |f|
   .form-group
     = f.label :nome, class: 'control-label'

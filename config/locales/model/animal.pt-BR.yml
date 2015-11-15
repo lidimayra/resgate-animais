@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      animal: 'Animal'
+
+    attributes:
+      animal:
+        nome: 'Nome'
+        peso: 'Peso'
+        especie: 'Espécie'
+        data_registro: 'Data de Registro'
+        data_saida: 'Data de Saída'
+

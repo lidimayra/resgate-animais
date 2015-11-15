@@ -10,4 +10,8 @@ RSpec.describe Animal, type: :model do
     it { is_expected.to validate_presence_of :data_registro }
   end
 
+  context 'ao validar o peso' do
+    it { is_expected.to validate_numericality_of(:peso).is_greater_than(0) }
+  end
+
 end

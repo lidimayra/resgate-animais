@@ -9,5 +9,6 @@ pt-BR:
         email: 'E-mail'
         data_registro: 'Data de Registro'
         data_desligamento: 'Data de Desligamento'
+        password: 'Senha'
         perfil: 'Perfil'
 
