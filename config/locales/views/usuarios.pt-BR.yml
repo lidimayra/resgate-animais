@@ -1,5 +1,9 @@
 pt-BR:
   usuarios:
+    index:
+      permission_denied: >
+        Você não possui permissão para acessar o endereço inserido
+
     create:
       success: "Usuário %{nome} criado com sucesso!"
       failure: 'Ops! O usuário não pôde ser criado!'

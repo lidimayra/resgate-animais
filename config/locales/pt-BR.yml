@@ -1,4 +1,11 @@
 pt-BR:
+  activerecord:
+    errors:
+      models:
+        usuario:
+          attributes:
+            data_desligamento:
+              after: 'deve ser posterior à data de registro'
   date:
     abbr_day_names:
     - Dom

@@ -1,0 +1,10 @@
+pt-BR:
+  layouts:
+    application:
+      animals: 'Animais'
+      novo_animal: 'Novo animal'
+      novo_usuario: 'Novo usuário'
+      usuarios: 'Usuários'
+      ver_animais: 'Ver animais'
+      ver_usuarios: 'Ver usuários'
+

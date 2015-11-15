@@ -1,4 +1,6 @@
 class UsuariosController < ApplicationController
+  before_action :authenticate_usuario!
+  before_filter :check_admin!
 
   USUARIO_PARAMS = [:nome, :email, :password, :data_registro,
                     :data_desligamento, :perfil]
@@ -40,6 +42,13 @@ class UsuariosController < ApplicationController
 
   def usuario_params
     params.require(:usuario).permit(USUARIO_PARAMS)
+  end
+
+  def check_admin!
+    unless current_usuario.administrador?
+      flash[:alert] = t('.permission_denied')
+      redirect_to root_path
+    end
   end
 
 end
