@@ -1,4 +1,4 @@
-admin = Usuario.create(nome: 'Administrador',
+admin = Usuario.create(nome: 'Administrador Sistema',
                         data_registro: Date.today,
                         perfil: :administrador,
                         email: 'admin@example.com',

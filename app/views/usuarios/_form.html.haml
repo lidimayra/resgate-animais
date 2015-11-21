@@ -7,7 +7,6 @@
       %li
         %strong= "#{ Usuario.human_attribute_name(atributo) }:"
         = "#{ mensagem }"
-  %br
 
 = form_for usuario, html: { class: "form form-horizontal usuario" } do |f|
   .form-group
@@ -25,6 +24,7 @@
     .controls
       = f.text_field :data_registro, class: ' datepicker form-control'
     = error_span(usuario[:data_registro])
+
   .form-group
     = f.label :data_desligamento, class: 'control-label'
     .controls
@@ -39,3 +39,5 @@
   = f.submit t('helpers.links.save'), class: 'btn btn-primary'
 
   = link_to t("helpers.links.cancel"), usuarios_path, class: 'btn btn-default'
+  %br
+  %br
