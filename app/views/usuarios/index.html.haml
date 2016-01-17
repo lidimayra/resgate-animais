@@ -6,6 +6,13 @@
 
       .page-header
         %h1=t model_class.model_name.human.pluralize
+      %br
+
+      = form_tag("/usuarios/", method: "get") do
+        = label_tag :perfil
+        = text_field_tag :perfil
+        = submit_tag "Visualizar"
+
 
       %table.table.table-striped
         %thead

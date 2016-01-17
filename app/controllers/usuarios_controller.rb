@@ -8,6 +8,12 @@ class UsuariosController < ApplicationController
   expose(:usuarios)
   expose(:usuario, attributes: :usuario_params)
 
+  def index
+    if params[:perfil]
+      self.usuarios = Usuario.where(perfil: params[:perfil]) unless params[:perfil] == ""
+    end
+  end
+
   def create
     usuario.password = t('.default_password')
     if usuario.save
