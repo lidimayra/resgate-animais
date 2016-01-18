@@ -6,6 +6,14 @@
 
       .page-header
         %h1=t model_class.model_name.human.pluralize
+      %br
+
+      = form_tag("/usuarios/", method: "get") do
+        = label_tag :perfil
+        = select_tag(:perfil, options_for_select([['Todos', ''],['Administrador', 1], ['Atendente', 2]], params[:perfil]))
+        = submit_tag "Visualizar"
+      %br
+
 
       %table.table.table-striped
         %thead
