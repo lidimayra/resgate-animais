@@ -10,8 +10,9 @@
 
       = form_tag("/usuarios/", method: "get") do
         = label_tag :perfil
-        = text_field_tag :perfil
+        = select_tag(:perfil, options_for_select([['Todos', ''],['Administrador', 1], ['Atendente', 2]], params[:perfil]))
         = submit_tag "Visualizar"
+      %br
 
 
       %table.table.table-striped
